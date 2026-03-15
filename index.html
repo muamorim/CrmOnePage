@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Responsive Website in HTML CSS</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="../custom-scripts.js" defer></script>
+  </head>
+  <body>
+    <main>
+      
+      <header>
+        <nav class="nav container">
+          <h2 class="nav_logo"><a href="#">Synergy CRM</a></h2>
+
+          <ul class="menu_items">
+            <img src="images/times.svg" alt="timesicon" id="menu_toggle" />
+            <li><a href="#" class="nav_link">Home</a></li>
+            <li><a href="#" class="nav_link">Sobre</a></li>
+            <li><a href="#" class="nav_link">Planos</a></li>
+            <li><a href="#" class="nav_link">Projetos</a></li>
+            <li><a href="#" class="nav_link">Contato</a></li>
+          </ul>
+          <img src="images/bars.svg" alt="timesicon" id="menu_toggle" />
+        </nav>
+      </header>
+      
+      <section class="hero">
+        <div class="row container">
+          <div class="column">
+          
+            <h2>Conectando você ao sucesso!</h2>
+            <p> Descubra como o Synergy CRM pode revolucionar a forma como você gerencia suas relações com os clientes. Com ferramentas intuitivas e insights valiosos, você estará sempre um passo à frente na satisfação do cliente e no crescimento dos seus negócios. </p>
+            <div class="buttons">
+              <button class="btn">Saiba Mais</button>
+              <button class="btn">Entre em contato</button>
+            </div>
+          </div>
+          <div class="column">
+            <img src="images/hero.png" alt="heroImg" class="hero_img" />
+          </div>
+        </div>
+        <img src="images/bg-bottom-hero.png" alt="" class="curveImg" />
+      </section>
+      
+    </main>
+    <section class="qualities">
+      <h2>Transforme o seu futuro</h2>
+      <p class="desc"> Descubra o que faz do Synergy CRM a escolha certa para sua empresa:</p>
+      <div class="quality">
+        <h3>Inovação Contínua</h3>
+        <p>Estamos sempre na vanguarda da tecnologia, oferecendo soluções inovadoras que ajudam sua empresa a se destacar no mercado.</p>
+      </div>
+      <div class="quality">
+       <h3>Atendimento Personalizado</h3>
+        <p>Nossa equipe se dedica a compreender suas necessidades únicas, oferecendo um atendimento personalizado que garante sua satisfação.</p>
+      </div>
+      <div class="quality">
+        <h3>Resultados Comprovados</h3>
+        <p>Com um histórico de resultados comprovados, nossos clientes experimentam um crescimento real e duradouro em seus negócios.</p>
+      </div>
+    </section>
+    <section class="clients">
+      <h2>Empresas que cresceram conosco</h2>
+      <div class="client-logos">
+        <img src="images/saojudas.png" alt="Logo Cliente 1" />
+        <img src="images/nestle.jpg" alt="Logo Cliente 2" />
+        <img src="images/logo-ambev.jpg" alt="Logo Cliente 3" />
+        <img src="images/logo-coca.png" alt="Logo Cliente 4" />
+        <img src="images/meta-logo.jpg" alt="Logo Cliente 5" />
+      </div>
+    </section>
+    <section class="statistics">
+      <div class="stats container">
+        <h2>Nosso Impacto em Números</h2>
+        <p>Veja como ajudamos empresas a alcançarem o sucesso:</p>
+        
+        <div class="stat">
+          <span class="counter" data-target="85">0</span>
+          <p>Satisfação dos clientes (%)</p>
+        </div>
+        
+        <div class="stat">
+          <span class="counter" data-target="200">0</span>
+          <p>Empresas que cresceram</p>
+        </div>
+        
+        <div class="stat">
+          <span class="counter" data-target="300">0</span>
+          <p>Projetos entregues</p>
+        </div>
+      </div>
+    </section>
+    <script>
+      const header = document.querySelector("header");
+      const menuToggler = document.querySelectorAll("#menu_toggle");
+
+      menuToggler.forEach(toggler => {
+        toggler.addEventListener("click", () => header.classList.toggle("showMenu"));
+      });
+      const counters = document.querySelectorAll('.counter');
+  const speed = 200; // Velocidade da animação
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+
+      const increment = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 30);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    updateCount();
+  });
+    </script>
+  </body>
+</html>
